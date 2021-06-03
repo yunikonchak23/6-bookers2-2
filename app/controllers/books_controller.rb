@@ -1,12 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :current_user, only: [:edit, :update, :destroy]
-  
-  def search
-  @books = Book.search(params[:keyword])
-  @keyword = params[:keyword]
-  render "index"
-  end
 
   def show
     @book = Book.find(params[:id])

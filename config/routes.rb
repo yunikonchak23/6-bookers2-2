@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/search'
   devise_for :users, controllers: {
     sessions: 'devise/sessions',
     registrations: 'devise/registrations'
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   root to:'homes#top'
 
   get '/home/about' => 'homes#about'
-  get 'search' => 'books#search'
+  get '/search' => 'search#search'
 
   resources :users,only: [:show,:index,:edit,:update] do
     resource :relationships, only: [:create, :destroy]
